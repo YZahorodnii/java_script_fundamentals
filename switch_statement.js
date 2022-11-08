@@ -29,7 +29,8 @@ function switchCaseTest(num) {
     return answer;
 }
 
-console.log(switchCaseTest(8))
+//console.log(switchCaseTest(8));
+
 
 function testSwitchCase(val) {
     var answer = "Please input 1 - 9";
@@ -50,6 +51,7 @@ function testSwitchCase(val) {
             answer = "high";
             break;
 }
-    return answer
+    return answer;
 }
-console.log(testSwitchCase(7))
+
+//console.log(testSwitchCase(7));
