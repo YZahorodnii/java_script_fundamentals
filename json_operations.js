@@ -342,13 +342,13 @@ for (var i = 0; i < new_json.length; i++) {
 
 //  return [{"_id": {"friends": [all names]}}]
 
-for (var i in new_json) {
+for (var item in new_json) {
     var new_dict = {};
-    new_dict[new_json[i]["_id"]] = {"friends": []};
-    for (var j in new_json[i]["friends"]) {
-        var names_dict = new_json[i]["friends"][j]["name"];
+    new_dict[new_json[item]["_id"]] = {"friends": []};
+    for (var name in new_json[item]["friends"]) {
+        var names_dict = new_json[item]["friends"][name]["name"];
         var new_obj = [];
-        new_dict[new_json[i]["_id"]]["friends"].push(names_dict);
+        new_dict[new_json[item]["_id"]]["friends"].push(names_dict);
         new_obj.push(new_dict);
     }
     console.log(new_obj);
