@@ -1,4 +1,3 @@
-
 var new_json = [
                  {
                    "_id": "636acd4ba58b7a392f8fac3f",
@@ -147,7 +146,6 @@ for (var i = 0; i < new_json.length; i++) {
     console.log(new_json[i]["_id"]);
 
 // return "_id" and "name"
-
 for (var i = 0; i < new_json.length; i++) {
     reconsole.log(new_json[i]["_id"]);
      for (var j = 0; j < Object.keys(new_json[i]["friends"]).length; j++) {
@@ -156,7 +154,6 @@ for (var i = 0; i < new_json.length; i++) {
 }
 
 // return "tags" for each "_id"
-
 for (var i = 0; i < new_json.length; i++) {
     console.log(new_json[i]["_id"]);
     for (var j = 0; j < Object.keys(new_json[i]["tags"]).length; j++) {
@@ -164,9 +161,7 @@ for (var i = 0; i < new_json.length; i++) {
     }
 }
 
-
 //  return [{"_id": {"friends": [all names]}}]
-
 for (var item in new_json) {
     var new_dict = {};
     new_dict[new_json[item]["_id"]] = {"friends": []};
@@ -179,9 +174,7 @@ for (var item in new_json) {
     console.log(new_obj);
 }
 
-
 //  return [{"_id": {"friends": [all names]}}]
-
 for (var i = 0; i < new_json.length; i++) {
     var new_dict = {};
     console.log(typeof(new_dict));
