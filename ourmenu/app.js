@@ -8,7 +8,7 @@ const menu = [
     desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
   },
   {
-    id: 2 ,
+    id: 2,
     title: "diner double",
     category: "lunch",
     price: 13.99,
@@ -80,47 +80,73 @@ const menu = [
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
+// get parent element
 const sectionCenter = document.querySelector(".section-center");
-const filterBtn = document.querySelectorAll(".filter-btn");
-
-//load items
-window.addEventListener("DOMContentLoaded", function(){
-  menuItemsDisplay(menu);
-});
-//filter items
-filterBtn.forEach(function(btn) {
-  btn.addEventListener("click", function(e) {
-    const category = e.currentTarget.dataset.id;
-    const menuCategory = menu.filter(function(menuItem) {
-    if (menuItem.category === category) {
-      return menuItem;
-    } 
-    });
-    // console.log(menuCategory);
-    if (category === "all") {
-      menuItemsDisplay(menu);
-    } else {
-      menuItemsDisplay(menuCategory);
-    }
-    });
+const container = document.querySelector(".btn-container");
+// display all items when page loads
+window.addEventListener("DOMContentLoaded", function () {
+  displayMenuItems(menu);
+  displayMenuButtons()
 });
 
-//function
-function menuItemsDisplay(menuItems) {
-  let displayMenu = menuItems.map(function(item){
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map(function (item) {
+    // console.log(item);
+
     return `<article class="menu-item">
-    <img src=${item.img} class="photo" alt=${item.title} />
-    <div class="item-info">
-      <header>
-        <h4>${item.title}</h4>
-        <h4 class="price">$${item.price}</h4>
-    </header>
-    <p class="item-text">
-    ${item.desc}
-    </p>
-    </div>
-  </article>`;
+          <img src=${item.img} alt=${item.title} class="photo" />
+          <div class="item-info">
+            <header>
+              <h4>${item.title}</h4>
+              <h4 class="price">$${item.price}</h4>
+            </header>
+            <p class="item-text">
+              ${item.desc}
+            </p>
+          </div>
+        </article>`;
   });
   displayMenu = displayMenu.join("");
+  // console.log(displayMenu);
+
   sectionCenter.innerHTML = displayMenu;
+}
+
+displayMenuButtons() {
+  const categories = menu.reduce(
+    function(values, item){
+      if (!values.includes(item.category)) {
+        values.push(item.category);
+      }
+      return values
+    }, 
+    ['all']
+  );
+  const categoryBtns = categories
+  .map(function(category){
+    return `<button class="filter-btn" type="button" 
+    data-id=${category}>
+    ${category}
+    </button>`
+  })
+  .join("")
+  container.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      // console.log(e.currentTarget.dataset);
+      const category = e.currentTarget.dataset.id;
+      const menuCategory = menu.filter(function (menuItem) {
+        // console.log(menuItem.category);
+        if (menuItem.category === category) {
+          return menuItem;
+        }
+      });
+        if (category === "all") {
+          diplayMenuItems(menu);
+        } else {
+          diplayMenuItems(menuCategory);
+        }
+    });
+  });
 }
