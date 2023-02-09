@@ -288,19 +288,116 @@ for (let j = 0; j < emptyArr.length; j++) {
 };
 // - Створити цикл for на 10  ітерацій з кроком 1. Вивести поточний номер кроку через console.log та
 // document.write
-
+for (let j = 0; j < 10; j++) {
+    console.log(j+1);
+    document.write(`<p>step #${j+1}</p>`)
+};
 // - Створити цикл for на 100 ітерацій з кроком 1. Вивести поточний номер кроку через console.log та
 // document.write
+for (let j = 0; j < 100; j++) {
+    console.log(j+1);
+    document.write(`<p>step #${j+1}</p>`)
+};
 // - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та
 // document.write
+for (let j = 0; j < 100; j += 2) {
+    console.log(j+1);
+    document.write(`<p>step #${j+1}</p>`)
+};
 // - Створити цикл for на 100 ітерацій. Вивести тільки парні кроки. через console.log + document.write
+for (let j = 1; j < 100; j += 2) {
+    console.log(j+1);
+    document.write(`<p>step #${j+1}</p>`)
+};
 // - Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
-//
-//
-//
+for (let j = 0; j < 100; j += 2) {
+    console.log(j+1);
+    document.write(`<p>step #${j+1}</p>`)
+};
 // стоврити масив книжок (назва, кількість сторінок, автори , жанри).
+let books = [
+{
+    title:'Harry Potter',
+    pageCount:500,
+    authors:['Rowling', 'J.K.', 'Hagwards'],
+    genre:['fantasy']
+},
+{
+    title:'Open',
+    pageCount:300,
+    authors: ['Agasi', 'Andre'],
+    genre:['autobiography','motivational']
+},
+{
+    title:'Shantaram',
+    pageCount:400,
+    authors: ['Robert'],
+    genre:['adventure', 'detective', 'autobiography']
+}
+];
 // -знайти наібльшу книжку.
-// - знайти книжку/ки з найбільшою кількістю жанрів
+/*
+if (books[0].pageCount > books[1].pageCount && books[0].pageCount > books[2].pageCount) {
+    console.log(books[0]);
+}
+if (books[0].pageCount < books[1].pageCount && books[1].pageCount > books[2].pageCount) {
+    console.log(books[1]);
+}
+if (books[0].pageCount < books[1].pageCount && books[1].pageCount < books[2].pageCount) {
+    console.log(books[2]);
+}
+if (books[0].pageCount > books[1].pageCount && books[0].pageCount < books[2].pageCount
+    && books[0].pageCount < books[2].pageCount) {
+    console.log(books[0]);
+};
+*/
+// // - знайти книжку/ки з найбільшою кількістю жанрів
+/*
+if ((books[0].genre).length > (books[1].genre).length && (books[0].genre).length > (books[2].genre).length) {
+    console.log(books[0]);
+}
+if ((books[0].genre).length < (books[1].genre).length && (books[1].genre).length > (books[2].genre).length) {
+    console.log(books[1]);
+}
+if ((books[0].genre).length < (books[1].genre).length && (books[1].genre).length < (books[2].genre).length) {
+    console.log(books[2]);
+}
+if ((books[0].genre).length > (books[1].genre).length && (books[0].genre).length < (books[2].genre).length
+    && (books[0].genre).length < (books[2].genre).length) {
+    console.log(books[0]);
+};
+
+ */
 // - знайти книжку/ки з найдовшою назвою
+/*
+if ((books[0].title).length > (books[1].title).length && (books[0].title).length > (books[2].title).length) {
+    console.log(books[0]);
+}
+if ((books[0].title).length < (books[1].title).length && (books[1].title).length > (books[2].title).length) {
+    console.log(books[1]);
+}
+if ((books[0].title).length < (books[1].title).length && (books[1].title).length < (books[2].title).length) {
+    console.log(books[2]);
+}
+if ((books[0].title).length > (books[1].title).length && (books[0].title).length < (books[2].title).length
+    && (books[0].title).length < (books[2].title).length) {
+    console.log(books[0]);
+};
+*/
 // - знайти книжку/ки які писали 2 автори
+/*
+for (let j = 0; j < books.length; j++) {
+    if ((books[j].authors).length == 2) {
+        console.log(books[j]);
+    }
+};
+*/
 // - знайти книжку/ки які писав 1 автор
+/*
+for (let j = 0; j < books.length; j++) {
+    if ((books[j].authors).length == 1) {
+        console.log(books[j]);
+    }
+};
+
+ */
