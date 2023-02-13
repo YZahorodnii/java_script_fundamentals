@@ -89,23 +89,18 @@ function writeInDoc(arr) {
 // - створити функцію яка повертає найменьше число з масиву
 
 // для масиву довжиною "3"
+// let arr = [a, b, c, d]
 function smallest(arr) {
-    if (arr[0] < arr[1] && arr[1] < arr[2]) {
-        console.log(arr[0]);
+    minNumber = arr[0];
+    for (const item of arr) {
+        if (minNumber > item) {
+            minNumber = item;
+        }
     }
-    if (arr[0] > arr[1] && arr[1] < arr[2]) {
-        console.log(arr[1]);
-    }
-    if (arr[0] > arr[1] && arr[1] > arr[2]) {
-        console.log(arr[2]);
-    }
-    if (arr[0] < arr[1] && arr[1] > arr[2] && arr[0] > arr[2]) {
-        console.log(arr[2]);
-    }
-    if (arr[0] < arr[1] && arr[1] > arr[2] && arr[0] < arr[2]) {
-        console.log(arr[0]);
-    }
-};
+    console.log(minNumber);
+    return minNumber;
+}
+smallest([11,5,10,2,100]);
 // - створити функцію sum(arr)яка приймає масив чисел, сумує значення
 // елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
 function sum(arr) {
@@ -123,7 +118,7 @@ function swap(arr,index1,index2) {
    let c = arr[index1];
     arr[index1] = arr[index2];
     arr[index2] = c;
-    return array;
+    console.log(arr);
 };
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues, exchangeCurrency)
 // Приклад exchange (10000,[{currency:'USD',value:40},{currency:'EUR', value:42}],'USD') // => 250
