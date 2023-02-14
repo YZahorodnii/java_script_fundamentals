@@ -2,22 +2,25 @@
 //     a. заповнити його 50 парними числами за допомоги циклу.
 /*
 let arr = [];
-for (let i = 0; i < 100; i += 2) {
-    arr.push(i)
+let j = 0;
+for (let i = 0; i < 100; i++) {
+    if (i % 2 == 0) {
+        arr[j] = i;
+        j++;
+    }
 }
 console.log(arr);
-
  */
 //     b. заповнити його 50 непарними числами за допомоги циклу.
 /*
 let arr = [];
+let j = 0;
 for (let i = 1; i < 100; i += 2) {
-    arr.push(i)
+    arr[j] = i;
+    j++;
 }
 console.log(arr);
-
- */
-
+*/
 //     c. Заповнити масив 20ма рандомними числами. (Google: Generate random number JS)
 /*
 let arr = [];
@@ -179,24 +182,47 @@ console.log(newArray);
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for зібрати всі букви в слово.
 let arr = ['a','b','c'];
 let str = '';
+/*
 for (let i = 0; i < arr.length; i++) {
     str = arr[i-2] + arr[i-1] + arr[i]
 };
 console.log(str);
+ */
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу while зібрати всі букви в слово.
+
 let i = 0;
 while (i < arr.length) {
-    str = arr[i-2] + arr[i-1] + arr[i];
+    str += arr[i]
     i++;
 }
 console.log(str);
+
 // - Дано масив: [ 'a', 'b', 'c'] . За допомогою циклу for of зібрати всі букви в слово.
-let k = 0;
+/*
+let arr = ['a','b','c'];
+let str = '';
 for (const arrElement of arr) {
-    str = str[k-1] + arrElement;
-    k++;
+    str += arrElement
 }
 console.log(str);
+ */
+// Зацикленість
+function foo(name, age) {
+    let user = {name, age};
+
+    return {
+        getName() {
+            return user.name;
+        },
+        getAge() {
+            return user.age;
+        }
+    }
+};
+
+let foo1 = foo( 'Vasya', 34);
+console.log(foo1.getName());
+console.log(foo1.getAge());
 
 
 
