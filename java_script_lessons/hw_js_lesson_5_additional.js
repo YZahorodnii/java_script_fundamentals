@@ -107,14 +107,30 @@ console.log(swap([11, 22, 33, 44, 55], 2));
 // [1,0,6,0,3] => [1,6,3,0,0]
 // [0,1,2,3,4] => [1,2,3,4,0]
 // [0,0,1,0]   => [1,0,0,0]
-let ftZero = (array) => {
-    for (i = 0; i < array.length; i++) {
-        if (array[i] == 0 && array[i+1]) {
-            let copy = array[i];
-            array[i] = array[i+1];
-            array[i+1] = copy;
+
+// let ftZero = (arr) => {
+//     for (i = 0; arr.length-i ==1; i++) {
+//         if (arr[i] === 0 && arr[i+1]) {
+//             let c = arr[i];
+//             arr[i] = arr[i+1];
+//             arr[i+1] = c;
+//         }
+//     }
+//     return arr;
+// };
+let ftZero = (arr) => {
+    let sumZero = 0;
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == 0) {
+            sumZero++;
+        } else if (arr[i] !== 0) {
+            newArr.push(arr[i]);
         }
     }
-    return array;
+    for (let j = 0; j < sumZero; j++) {
+        newArr.push(0);
+    }
+    return newArr
 };
-console.log(ftZero([0, 5, 4, 3, 2, 0]));
+console.log(ftZero([ 0, 0, 0, 0, 5, 0, 4]));
