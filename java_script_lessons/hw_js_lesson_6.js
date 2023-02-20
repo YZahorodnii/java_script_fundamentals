@@ -79,17 +79,7 @@ let coursesAndDurationArray = [
     {title: 'Frontend', monthDuration: 4}
 ];
 // -- відсортувати його за спаданням за monthDuration
-let sorted1 = coursesAndDurationArray.sort((a,b) => {
-    if (a.monthDuration < b.monthDuration) {
-        return 1;
-    }
-    if (a.monthDuration > b.monthDuration) {
-        return -1;
-    }
-    if (a.monthDuration === b.monthDuration) {
-        return 0;
-    }
-});
+let sorted1 = coursesAndDurationArray.sort((a,b) => b.monthDuration - a.monthDuration);
 console.log(sorted1);
 // -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
 let filtered = coursesAndDurationArray.filter(item => item.monthDuration > 5);
@@ -102,42 +92,47 @@ console.log(map);
 // =========================
 //     описати колоду карт (від 6 до туза без джокерів)
 let cards = [
-    {cardSuit: 'hearts', color: 'red', value : ['6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']},
-    {cardSuit: 'diamonds', color: 'red', value : ['6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']},
-    {cardSuit: 'spades', color: 'black', value: ['6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']},
-    {cardSuit: 'clubs', color: 'black', value: ['6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']}
-];
+    {cardSuit: 'spade',value: '6',color: 'black',},
+    {cardSuit: 'spade',value: '7',color: 'black',},
+    {cardSuit: 'spade',value: '8',color: 'black',},
+    {cardSuit: 'spade',value: '9',color: 'black',},
+    {cardSuit: 'spade',value: '10',color: 'black',},{cardSuit: 'spade',value: 'jack',color: 'black',},{cardSuit: 'spade',value: 'queen',color: 'black',},{cardSuit: 'spade',value: 'king',color: 'black',},{cardSuit: 'spade',value: 'ace',color: 'black',},{cardSuit: 'diamond',value: '6',color: 'red',},{cardSuit: 'diamond',value: '7',color: 'red',},{cardSuit: 'diamond',value: '8',color: 'red',},{cardSuit: 'diamond',value: '9',color: 'red',},{cardSuit: 'diamond',value: '10',color: 'red',},{cardSuit: 'diamond',value: 'jack',color: 'red',},{cardSuit: 'diamond',value: 'queen',color: 'red',},{cardSuit: 'diamond',value: 'king',color: 'red',},{cardSuit: 'diamond',value: 'ace',color: 'red',},{cardSuit: 'heart',value: '6',color: 'red',},{cardSuit: 'heart',value: '7',color: 'red',},{cardSuit: 'heart',value: '8',color: 'red',},{cardSuit: 'heart',value: '9',color: 'red',},{cardSuit: 'heart',value: '10',color: 'red',},{cardSuit: 'heart',value: 'jack',color: 'red',},{cardSuit: 'heart',value: 'queen',color: 'red',},{cardSuit: 'heart',value: 'king',color: 'red',},{cardSuit: 'heart',value: 'ace',color: 'red',},{cardSuit: 'clubs',value: '6',color: 'black',},{cardSuit: 'clubs',value: '7',color: 'black',},{cardSuit: 'clubs',value: '8',color: 'black',},{cardSuit: 'clubs',value: '9',color: 'black',},{cardSuit: 'clubs',value: '10',color: 'black',},{cardSuit: 'clubs',value: 'jack',color: 'black',},{cardSuit: 'clubs',value: 'queen',color: 'black',},{cardSuit: 'clubs',value: 'king',color: 'black',},{cardSuit: 'clubs',value: 'ace',color: 'black',},];
 // - знайти піковий туз
-let ace = cards.map(item => {
-    if (item.cardSuit === 'spades') {
-        console.log(`ACE has value index #${item.value.indexOf('Ace')}`);
+let ace = cards.filter(item => {
+    if (item.cardSuit === 'spade' && item.value === 'ace') {
+        return item;
     }
 });
+console.log(ace);
 // - всі шістки
-let sixth = cards.map(item => item.value.indexOf('6'))
+let sixth = cards.filter(item => {
+    if (item.value === '6') {
+        return item;
+    }
+});
 console.log(sixth);
 // - всі червоні карти
 let reds = cards.filter(item => {
     if (item.color === 'red') {
-        console.log(item.value);
+        return item;
     }
 });
+console.log(reds);
 // - всі буби
-let diamonds = cards.filter(item=> {
-    if (item.cardSuit === 'diamonds') {
-        console.log(item.value);
+let diamonds = cards.filter(item => {
+    if (item.cardSuit === 'diamond') {
+        return item;
     }
 });
+console.log(diamonds);
 // - всі трефи від 9 та більше
-cards.filter(item => {
+let clubs = cards.filter(item => {
     if (item.cardSuit === 'clubs') {
-        let newArr = [];
-        for (let i = 3; i < (item.value).length; i++) {
-            newArr.push(item.value[i]);
-        }
-        console.log(newArr);
+        return item;
     }
 });
+clubs.splice(0,3);
+console.log(clubs);
 // {
 //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
 //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
@@ -153,30 +148,20 @@ cards.filter(item => {
 //     hearts:[],
 //     clubs:[]
 // }
-/*
-cards.reduce((accum, element) => {
-    if (element.cardSuit == 'hearts') {
-        for (const item of element.value) {
-            accum.hearts.push(item);
-        }
-    } if (element.cardSuit == 'spades') {
-        for (const item of element.value) {
-            accum.spades.push(item);
-        }
-        console.log(accum);
-    } if (element.cardSuit === 'diamonds') {
-        for (const item of element.value) {
-            accum.diamonds.push(item);
-        }
-    } if (element.cardSuit === 'clubs') {
-        for (const item of element.value) {
-            accum.clubs.push(item);
-        }
-        return accum;
-    }
-}, {hearts: [], spades: [], diamonds: [], clubs: []});
-*/
 
+let reduced = cards.reduce((accum, element) => {
+    if (element.cardSuit === 'heart') {
+        accum.hearts.push(element);
+    }if (element.cardSuit === 'spade') {
+        accum.spades.push(element);
+    }if (element.cardSuit === 'diamond') {
+        accum.diamonds.push(element);
+    }if (element.cardSuit === 'clubs') {
+        accum.clubs.push(element);
+    }
+    return accum;
+}, {hearts: [], spades: [], diamonds: [], clubs: []});
+console.log(reduced);
 // =========================
 //     взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
 let coursesArray = [
