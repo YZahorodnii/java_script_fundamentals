@@ -22,19 +22,7 @@ console.log(str8.toLowerCase());
 console.log(str9.toLowerCase());
 // - Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
 let testStr = ' dirty string   ';
-let result = '';
-start = false;
-for (let i = 0; i < testStr.length; i++) {
-    if (!start && testStr[i] !== ' ') {
-        result = result + testStr[i]
-        start = true;
-    }
-    else if (start == true && (testStr[i] !== ' ' || (testStr[i] == ' ' && testStr[i+1] && testStr[i+1] !== ' '))) {
-        result = result + testStr[i];
-    }
-}
-console.log(result);
-
+console.log(testStr.trim());
 // - Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
     let str10 = 'Ревуть воли як ясла повні';
 let stringToarray = (str) => {return str.split(' ')};
