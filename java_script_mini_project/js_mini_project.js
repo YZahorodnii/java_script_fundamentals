@@ -24,7 +24,8 @@ fetch(url).then(users => users.json()).then(users => {
     document.body.appendChild(container);
 
 
-})
+});
+
 // На странице user-details.html:
 // 4 Вивести всю, без виключення, інформацію про об'єкт user на який клікнули
 // 5 Додати кнопку "post of current user", при кліку на яку, з'являються title всіх постів

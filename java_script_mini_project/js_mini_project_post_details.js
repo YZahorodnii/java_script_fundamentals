@@ -17,6 +17,7 @@ fetch(urlId).then(value => value.json()).then(value => {
     fetch(urlComment).then(data => data.json()).then(data => {
         let comments = document.createElement('div');
         comments.classList.add('comments');
+        comments.innerHTML = '<p>COMMENTS:</p>';
         for (const comment of data) {
             let commentBox = document.createElement('div');
             commentBox.classList.add('commentBox');

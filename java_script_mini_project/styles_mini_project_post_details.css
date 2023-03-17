@@ -3,6 +3,11 @@ body {
     margin: 0;
 }
 
+p {
+    display: flex;
+    width: 100%;
+}
+
 .post {
     width: 90%;
     margin: 10px auto 0 auto;
@@ -21,7 +26,6 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     min-width: 1000px;
-    column-gap: 15px;
 }
 
 .commentBox {
