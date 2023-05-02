@@ -118,7 +118,7 @@ console.log(swap([11, 22, 33, 44, 55], 2));
 //     }
 //     return arr;
 // };
-let ftZero = (arr) => {
+/*let ftZero = (arr) => {
     let sumZero = 0;
     let newArr = [];
     for (let i = 0; i < arr.length; i++) {
@@ -132,5 +132,82 @@ let ftZero = (arr) => {
         newArr.push(0);
     }
     return newArr
+};*/
+/*let ftnZero = (arr) => {
+    let swap = false;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 0 && (arr[i+1] && arr[i+1] !== 0)) {
+            c = arr[i];
+            arr[i]= arr[i+1];
+            arr[i+1] = c;
+            swap = true;
+        }
+        if (swap && i == arr.length-1) {
+            i = 0;
+            swap = false;
+        }
+    }
+
+    return arr;
+};*/
+
+let ftnZero = (arr) => {
+    for (let i = arr.length; i >= 0; i--) {
+        // console.log("i : " + i);
+        for (let j = 0; j < i; j++) {
+            // console.log("arr[j] : " + arr[j]);
+            if (arr[j] === 0 && arr[j + 1]) {
+                c = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = c;
+            }
+
+        }
+
+    }
+    console.log(arr);
 };
-console.log(ftZero([ 0, 0, 0, 0, 5, 0, 4]));
+
+ftnZero([9, 6, 0, 0, 0, 5, 0, 9]);
+
+let arr = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+        console.log(arr[i][j]);
+
+    }
+
+}
+
+/*callback practice*/
+function filter(arr, callback) {
+    let exitArr = [];
+    for (const item of arr) {
+        if (callback(item)) {
+            exitArr[exitArr.length] = item;
+        }
+    }
+    return exitArr;
+};
+
+let users = [
+    {name: 'vasya', age: 31, status: false},
+    {name: 'petya', age: 30, status: true},
+    {name: 'kolya', age: 29, status: true},
+    {name: 'olya', age: 28, status: false},
+    {name: 'max', age: 30, status: true},
+    {name: 'anya', age: 31, status: false},
+    {name: 'oleg', age: 28, status: false},
+    {name: 'andrey', age: 29, status: true},
+    {name: 'masha', age: 30, status: true},
+    {name: 'olya', age: 31, status: false},
+    {name: 'max', age: 31, status: true}];
+
+console.log(filter(users, function (user) {
+    return user.age > 30
+}));

@@ -133,7 +133,6 @@ switch(weekDayNumber) {
         break;
     default:
         console.log('no value found');
-        break;
 }
 //     - Користувач вводить або має два числа.
 //         Потрібно знайти та вивести максимальне число з тих двох .
@@ -154,11 +153,11 @@ if (enterNumber1 > enterNumber2) {
 //         за допомоги  оператора || буде присвоювати змінній х значення
 //         "default"  якщо значення змінної х являється falsy
 //         (хибноподібні, тобто приводиться до false)
-let xx = null;
-if (xx == undefined || null || false) {
-    xx = false;
-}
-console.log(xx);
+let xx = undefined;
+// if (xx == undefined || null || false || NaN) {
+//     xx = false;
+let res = xx || 'default'
+console.log(res);
 //     - з файлу arrays.js (лежить в папці 2023 plan ) взяти масив
 //     coursesAndDurationArray. За допомоги іф перевірити кожен його
 //     елемент на тривалість навчання. У випадку якщо тривалість довша

@@ -26,7 +26,7 @@ console.log(testStr.trim());
 // - Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
     let str10 = 'Ревуть воли як ясла повні';
 let stringToarray = (str) => {return str.split(' ')};
-console.log(stringToarray(str10));;
+console.log(stringToarray(str10));
 
 // - є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти
 // ' + 'в масиві на стрінгові.
@@ -140,11 +140,11 @@ console.log(clubs);
 let reduced = cards.reduce((accum, element) => {
     if (element.cardSuit === 'heart') {
         accum.hearts.push(element);
-    }if (element.cardSuit === 'spade') {
+    }else if (element.cardSuit === 'spade') {
         accum.spades.push(element);
-    }if (element.cardSuit === 'diamond') {
+    }else if (element.cardSuit === 'diamond') {
         accum.diamonds.push(element);
-    }if (element.cardSuit === 'clubs') {
+    }else if (element.cardSuit === 'clubs') {
         accum.clubs.push(element);
     }
     return accum;

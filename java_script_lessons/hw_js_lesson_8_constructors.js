@@ -32,11 +32,7 @@ console.log(users.sort((a, b) => a.id - b.id));
 // створити пустий масив, наповнити його 10 об'єктами Client
 class Client {
     constructor(id, name, surname , email, phone, order) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.phone = phone;
+        User.call(this, id, name, surname , email, phone);
         this.order = order;
     }
 };
@@ -71,7 +67,7 @@ function Carr(model, manufacturer, prodYear, maxSpeed, engineCapacity) {
     this.maxSpeed = maxSpeed;
     this.engineCapacity = engineCapacity;
     this.drive = function () {
-        console.log(`Drive on speed ${this.maxSpeed} per hour`);
+        return `Drive on speed ${this.maxSpeed} per hour`;
     };
     this.info = function () {
         console.log(`
@@ -100,7 +96,7 @@ newCarr.changeYear(2023)
 newCarr.info();
 newCarr.addDriver('Yaaaa')
 console.log(newCarr);
-newCarr.drive();
+console.log(newCarr.drive());;
 newCarr.increaseMaxSpeed(300)
 newCarr.changeYear(2023)
 newCarr.info();
@@ -120,6 +116,7 @@ constructor (model, manufacturer, prodYear, maxSpeed, engineCapacity) {
     this.prodYear = prodYear;
     this.maxSpeed = maxSpeed;
     this.engineCapacity = engineCapacity;
+    this.drivers = [];
     this.drive = function () {
         console.log(`Drive on speed ${this.maxSpeed} per hour`);
     };
@@ -137,10 +134,20 @@ constructor (model, manufacturer, prodYear, maxSpeed, engineCapacity) {
     this.changeYear = function (newValue) {
         this.prodYear = newValue
     };
-    this.addDriver = function (driver) {
-        this.driver = driver;
+
+    this.addDriver = function(name, age, experience) {
+        this.drivers.push(new Driver(name, age, experience));
     };
+
 }
+};
+
+class Driver {
+    constructor(name, age, experience) {
+        this.name = name;
+        this.age = age;
+        this.experience = experience;
+    }
 };
 
 let newCar = new Car('Model S', 'Tesla', '2022', 250, '0');
@@ -149,7 +156,7 @@ newCar.drive();
 newCar.increaseMaxSpeed(300)
 newCar.changeYear(2023)
 newCar.info();
-newCar.addDriver('Yaaaa')
+newCar.addDriver('Miko', '35', '10');
 console.log(newCar);
 
 // -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги.

@@ -125,7 +125,7 @@ let exchange = (sumUAH,currencyValues, exchangeCurrency) => {
         if (exchangeCurrency == currencyValues[i].currency) {
             let value = currencyValues[i].value;
             let result = sumUAH / value;
-            return result
+            return result;
         }
     }
 };
